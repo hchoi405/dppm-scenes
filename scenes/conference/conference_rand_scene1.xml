@@ -7,7 +7,7 @@
 	<default name="dualBuffer" value="true"/>
 	<integrator type="$method">
 		<integer name="maxDepth" value="17"/>
-		<integer name="photonCount" value="1000000"/>
+		<integer name="photonCount" value="100000" />
 		<integer name="maxPasses" value="$maxPasses"/>
 		<integer name="stepSnapshot" value="$stepSnapshot"/>
 		<integer name="kNN" value="$kNN" />
