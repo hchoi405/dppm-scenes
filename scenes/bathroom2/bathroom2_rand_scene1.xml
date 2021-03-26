@@ -5,6 +5,7 @@
 	<default name="sampleCount" value="100"/>
 	<default name="kNN" value="10"/>
 	<default name="photonCount" value="100000"/>
+	<default name="dualBuffer" value="false"/>
 	
     <integrator type="$method">
 		<integer name="maxDepth" value="6"/>
@@ -12,6 +13,7 @@
 		<integer name="maxPasses" value="$maxPasses"/>
 		<integer name="stepSnapshot" value="$stepSnapshot"/>
 		<integer name="kNN" value="$kNN" />
+		<boolean name="dualBuffer" value="$dualBuffer" />
 	</integrator>
 	<texture type="bitmap" id="envLightTexture">
 		<string name="filename" value="textures/background.exr"/>
