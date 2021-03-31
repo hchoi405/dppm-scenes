@@ -24,6 +24,7 @@
 	</integrator>
 
 	<emitter type="envmap" id="background">
+		<float name="scale" value="0.1"/>
 		<transform name="toWorld">
 			<rotate y="1" angle="190"/>
 			<rotate z="1" angle="-25"/>
