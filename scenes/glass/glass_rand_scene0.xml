@@ -28,8 +28,8 @@
 
 		<film type="hdrfilm">
             
-			<integer name="width" value="1500" />
-			<integer name="height" value="1000" />
+			<integer name="width" value="1200" />
+			<integer name="height" value="800" />
 
 			<boolean name="banner" value="false" />
 
