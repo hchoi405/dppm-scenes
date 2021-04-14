@@ -6,8 +6,8 @@
 	<default name="kNN" value="10"/>
 	<default name="photonCount" value="100000"/>
 	<default name="dualBuffer" value="false"/>
-	
-    <integrator type="$method">
+
+	<integrator type="$method">
 		<integer name="maxDepth" value="9"/>
 		<integer name="photonCount" value="$photonCount" />
 		<integer name="maxPasses" value="$maxPasses"/>
@@ -24,7 +24,7 @@
 			<integer name="sampleCount" value="$sampleCount"/>
 		</sampler>
 		<film type="hdrfilm">
-            
+
 			<integer name="width" value="1024"/>
 			<integer name="height" value="1024"/>
 			<boolean name="banner" value="false"/>
@@ -119,15 +119,15 @@
 	</shape>
 	<emitter type="point">
 		<transform name="toWorld">
-			<lookat origin="-0.5 1.90 -0.03" target="-0.005 0 -0.03" up="1 0 0"/>
+			<lookat origin="-0.45 1.90 -0.1" target="-0.005 0 -0.03" up="1 0 0" />
 		</transform>
-		<spectrum name="intensity" value="1.27324 3.81972 5.41127"/>
+		<spectrum name="intensity" value="1.27324 1.81972 4.41127" />
 	</emitter>
 	<emitter type="point">
 		<transform name="toWorld">
-			<lookat origin="0.5 1.90 -0.03" target="-0.005 0 -0.03" up="1 0 0"/>
+			<lookat origin="0.45 1.90 0.1" target="-0.005 0 -0.03" up="1 0 0" />
 		</transform>
-		<spectrum name="intensity" value="5.41127 3.81972 1.27324"/>
+		<spectrum name="intensity" value="5.41127 3.81972 1.27324" />
 	</emitter>
 	<shape type="obj">
 		<string name="filename" value="models/Mesh001.obj"/>

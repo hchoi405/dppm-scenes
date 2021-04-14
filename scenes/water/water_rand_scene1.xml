@@ -119,13 +119,13 @@
 	</shape>
 	<emitter type="point">
 		<transform name="toWorld">
-			<lookat origin="-0.5 1.90 -0.03" target="-0.005 0 -0.03" up="1 0 0"/>
+			<lookat origin="-0.5 1.90 -0.25" target="-0.005 0 -0.03" up="1 0 0"/>
 		</transform>
 		<spectrum name="intensity" value="1.27324 3.81972 5.41127"/>
 	</emitter>
 	<emitter type="point">
 		<transform name="toWorld">
-			<lookat origin="0.5 1.90 -0.03" target="-0.005 0 -0.03" up="1 0 0"/>
+			<lookat origin="0.5 1.90 0.25" target="-0.005 0 -0.03" up="1 0 0"/>
 		</transform>
 		<spectrum name="intensity" value="5.41127 3.81972 1.27324"/>
 	</emitter>
