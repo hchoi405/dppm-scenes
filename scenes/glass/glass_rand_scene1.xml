@@ -67,8 +67,8 @@
 		</bsdf>
 	</bsdf>
 	<bsdf type="dielectric" id="WaterAir">
-		<rgb name="specularTransmittance" value="0.341, 0.980, 1.0"/>
-		<rgb name="specularReflectance" value="0.341, 0.980, 1.0"/>
+		<rgb name="specularTransmittance" value="1.0, 0.341, 0.980"/>
+		<rgb name="specularReflectance" value="1.0, 0.341, 0.980"/>
 		<float name="intIOR" value="1.33"/>
 		<float name="extIOR" value="1"/>
 	</bsdf>
@@ -247,6 +247,6 @@
 		</transform>
 		<float name="cutoffAngle" value="10"/>
 		<float name="beamWidth" value="0"/>
-		<spectrum name="intensity" value="190, 254, 254"/>
+		<spectrum name="intensity" value="1900, 2540, 2540" />
 	</emitter>
 </scene>

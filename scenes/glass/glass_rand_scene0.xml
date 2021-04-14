@@ -309,7 +309,7 @@
 		<float name="beamWidth" value="0" />
 		
 		
-		<spectrum name="intensity" value="190, 254, 254" />
+		<spectrum name="intensity" value="1900, 2540, 2540" />
 	</emitter>
 
 
