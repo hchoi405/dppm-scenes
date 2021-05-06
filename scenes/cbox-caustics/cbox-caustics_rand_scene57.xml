@@ -1,0 +1,127 @@
+<scene version="0.6.0">
+	<default name="dualBuffer" value="false"/>
+	<default name="photonCount" value="100000"/>
+	<default name="kNN" value="10"/>
+	<default name="sampleCount" value="100"/>
+	<default name="maxPasses" value="30000"/>
+	<default name="stepSnapshot" value="10000"/>
+	<default name="method" value="sppm"/>
+	<integrator type="$method">
+		<integer name="maxDepth" value="9"/>
+		<integer name="photonCount" value="$photonCount"/>
+		<integer name="maxPasses" value="$maxPasses"/>
+		<integer name="stepSnapshot" value="$stepSnapshot"/>
+		<integer name="kNN" value="$kNN"/>
+		<boolean name="dualBuffer" value="$dualBuffer"/>
+	</integrator>
+	<sensor type="perspective">
+		<float name="fov" value="19.5"/>
+		<transform name="toWorld">
+			<matrix value="    -1 0 0 0     0 1 0 1     0 0 -1 6.8     0 0 0 1"/>
+		</transform>
+		<sampler type="sobol">
+			<integer name="sampleCount" value="64"/>
+		</sampler>
+		<film type="ldrfilm">
+			<integer name="width" value="1024"/>
+			<integer name="height" value="1024"/>
+			<string name="fileFormat" value="png"/>
+			<string name="pixelFormat" value="rgb"/>
+			<float name="gamma" value="2.2"/>
+			<boolean name="banner" value="false"/>
+			<rfilter type="tent"/>
+		</film>
+	</sensor>
+	<bsdf type="twosided" id="LeftWall">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.662850 0.116887 0.579932"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="RightWall">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.967984 0.439272 0.512514"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Floor">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.296663 0.944480 0.819651"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Ceiling">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.745715 0.081866 0.206001"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="BackWall">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.438751 0.911616 0.010411"/>
+		</bsdf>
+	</bsdf>
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="-4.37114e-008 1 4.37114e-008 0 0 -8.74228e-008 2 0 1 4.37114e-008 1.91069e-015 0 0 0 0 1"/>
+		</transform>
+		<ref id="Floor"/>
+	</shape>
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="-1 7.64274e-015 -1.74846e-007 0 8.74228e-008 8.74228e-008 -2 2 0 -1 -4.37114e-008 0 0 0 0 1"/>
+		</transform>
+		<ref id="Ceiling"/>
+	</shape>
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="1.91069e-015 1 1.31134e-007 0 1 3.82137e-015 -8.74228e-008 1 -4.37114e-008 1.31134e-007 -2 -1 0 0 0 1"/>
+		</transform>
+		<ref id="BackWall"/>
+	</shape>
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="4.37114e-008 -1.74846e-007 2 1 1 3.82137e-015 -8.74228e-008 1 3.82137e-015 1 2.18557e-007 0 0 0 0 1"/>
+		</transform>
+		<ref id="RightWall"/>
+	</shape>
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="-4.37114e-008 8.74228e-008 -2 -1 1 3.82137e-015 -8.74228e-008 1 0 -1 -4.37114e-008 0 0 0 0 1"/>
+		</transform>
+		<ref id="LeftWall"/>
+	</shape>
+	<emitter type="point">
+		<transform name="toWorld">
+			<matrix value="1 0 0 0.404034 0 1 0 1.950000 0 0 1 0.030478 0 0 0 1"/>
+		</transform>
+		<spectrum name="intensity" value="1.396896, 2.864136, 1.179313"/>
+	</emitter>
+	<bsdf type="dielectric" id="glass1">
+		<float name="intIOR" value="1.404178529175676"/>
+		<float name="extIOR" value="1"/>
+	</bsdf>
+	<bsdf type="dielectric" id="glass2">
+		<float name="intIOR" value="1.4656552495667035"/>
+		<float name="extIOR" value="1"/>
+	</bsdf>
+	<shape type="obj">
+		<string name="filename" value="models/lucy.obj"/>
+		<transform name="toWorld">
+			<matrix value="-0.0005991249617685471 -2.2741432738691643e-05 -4.089787934412738e-05 0.8431683972453108 -1.4629989091225832e-05 0.0005899133209255965 -0.00011370473308417338 1.834954341462572 4.4449664982380346e-05 -0.00011236382933819967 -0.0005886757394792385 -0.3840982656351758 0.0 0.0 0.0 1.0 "/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+		<ref id="glass1"/>
+	</shape>
+	<shape type="obj">
+		<string name="filename" value="models/teapot.obj"/>
+		<transform name="toWorld">
+			<matrix value="0.06407452824165277 -0.1178476109215657 -0.062470045751802025 -0.17474082713367792 0.10452818468130531 0.08741540744232555 -0.057693295403075016 1.384210158563815 0.08285182329547071 -0.019146757618845385 0.12109949725265015 -0.41178909487963955 0.0 0.0 0.0 1.0 "/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+		<ref id="glass2"/>
+	</shape>
+	<default name="method" value="sppm"/>
+	<default name="stepSnapshot" value="10000"/>
+	<default name="maxPasses" value="30000"/>
+	<default name="sampleCount" value="100"/>
+	<default name="kNN" value="10"/>
+	<default name="photonCount" value="100000"/>
+	<default name="dualBuffer" value="false"/>
+</scene>
